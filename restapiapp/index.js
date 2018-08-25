@@ -7,11 +7,13 @@ let server = http.createServer(function(req, res) {
     let path = parsedUrl.pathname;
     let trimmedPath = path.replace(/^\/+|\/+$/g,'');
 
+    let queryStringObject = parsedUrl.query;
+
     let method = req.method.toLowerCase()
 
     res.end('Hello World\n');
 
-    console.log(trimmedPath + ' ' + method);
+    console.log(trimmedPath + ' ' + method + ' ', queryStringObject);
 });
 
 server.listen(3000, function() {
